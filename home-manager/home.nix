@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, fresh, ... }:
 
 {
   home.username = "melek";
