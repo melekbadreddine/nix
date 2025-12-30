@@ -13,7 +13,7 @@
     # Tools
     tre
     zoxide
-    google-gemini-cli
+    gemini-cli
     fresh.packages.${pkgs.system}.default
 
     # Browsers
