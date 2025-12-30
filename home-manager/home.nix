@@ -30,12 +30,23 @@
     enableBashIntegration = true;
   };
 
+  programs.eza = {
+    enable = true;
+    enableBashIntegration = true;
+    icons = "always";
+    extraOptions = [
+      "--color=always"
+    ];
+  };
+
   programs.bash = {
     enable = true;
     shellAliases = {
-      ll = "ls -alF";
-      la = "ls -A";
-      l = "ls -CF";
+      ls = "eza --icons=always --color=always";
+      la = "eza -a --icons=always --color=always";
+      ll = "eza -alF --icons=always --color=always";
+      lstr = "eza -l --sort=time --icons=always --color=always";
+      tree = "eza --tree -L 1 --no-user --no-permissions --no-filesize --icons=always --color=always";
       nix-switch = "home-manager switch --flake ~/.config/nix#melek";
     };
     
