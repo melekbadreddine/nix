@@ -16,8 +16,8 @@
     bun
     
     # Tools
-    tre
     zoxide
+    tre-command
     gemini-cli
     fresh.packages.${pkgs.system}.default
 
