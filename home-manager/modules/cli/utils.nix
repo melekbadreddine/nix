@@ -23,4 +23,8 @@
     # AI
     gemini-cli
   ];
+
+  programs.bash.shellAliases = {
+    "?" = "cht.sh";
+  };
 }

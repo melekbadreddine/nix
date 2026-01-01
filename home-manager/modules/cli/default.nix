@@ -3,7 +3,7 @@
     ./bat.nix
     ./eza.nix
     ./fzf.nix
-    ./tldr.nix
+    ./starship.nix
     ./utils.nix
     ./zoxide.nix
   ];
