@@ -11,6 +11,7 @@
     
     # Help & Cheats
     navi
+    cht-sh
 
     # Monitoring
     bottom    # btm

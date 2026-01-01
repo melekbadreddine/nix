@@ -25,11 +25,6 @@
       else
           PS1=''${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
       fi
-
-      # Cheat sheet
-      ?() {
-        curl -s "cht.sh/$*"
-      }
     '';
   };
 }
