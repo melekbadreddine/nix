@@ -19,6 +19,5 @@
       ports = "netstat -tulanp";
       myip = "curl -s ifconfig.me";
     };
-    bashrcExtra = '';
   };
 }
