@@ -13,5 +13,6 @@
     lsf = "eza -lf --icons=always --color=always";
     lstr = "eza -l --sort=time --icons=always --color=always";
     tree = "eza --tree --no-user --no-permissions --no-filesize --icons=always --color=always";
+    tree3 = "eza --tree -L 3 --icons=always --color=always";
   };
 }

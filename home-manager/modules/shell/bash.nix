@@ -2,11 +2,6 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      # Quick navigation
-      ".." = "cd ..";
-      "..." = "cd ../..";
-      "...." = "cd ../../..";
-      
       # Nix management
       nix-switch = "home-manager switch --flake ~/.config/nix#melek";
       nix-update = "nix flake update ~/.config/nix && home-manager switch --flake ~/.config/nix#melek";
@@ -17,6 +12,11 @@
       else
           PS1=''${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
       fi
+
+      # Navigation functions
+      .. () { cd ..; }
+      ... () { cd ../..; }
+      .... () { cd ../../..; }
     '';
   };
 }
