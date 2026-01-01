@@ -8,7 +8,7 @@
       "...." = "cd ../../..";
 
       # Show all relevant files with names (excludes .json, .lock, .git, etc)
-      showfiles = ''for file in *; do [[ -f "$file" && ! "$file" =~ \.(json|lock)$ && ! "$file" =~ ^\.git ]] && { echo ""; echo "=== $file ==="; cat "$file"; }; done'';
+      showfiles = ''find . -type f ! -name "*.json" ! -name "*.lock" ! -path "*/.git/*" ! -name ".git*" | while read -r file; do echo ""; echo "=== ''${file#./} ==="; cat "$file"; done'';
       
       # Nix management
       nix-switch = "home-manager switch --flake ~/.config/nix#melek";
