@@ -13,6 +13,14 @@
       # Nix management
       nix-switch = "home-manager switch --flake ~/.config/nix#melek";
       nix-update = "nix flake update ~/.config/nix && home-manager switch --flake ~/.config/nix#melek";
+      nix-edit = "fresh ~/.config/nix/";
+
+      # System info
+      ports = "netstat -tulanp";
+      myip = "curl -s ifconfig.me";
+
+      # Cheat sheets
+      "?" = "curl -s cht.sh/";
     };
     bashrcExtra = ''
       if [ "$color_prompt" = yes ]; then
