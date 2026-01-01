@@ -2,6 +2,14 @@
   programs.bash = {
     enable = true;
     shellAliases = {
+      # Quick navigation
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+
+      # Show all relevant files with names (excludes .json, .lock, .git, etc)
+      showfiles = ''for file in *; do [[ -f "$file" && ! "$file" =~ \.(json|lock)$ && ! "$file" =~ ^\.git ]] && { echo ""; echo "=== $file ==="; cat "$file"; }; done'';
+      
       # Nix management
       nix-switch = "home-manager switch --flake ~/.config/nix#melek";
       nix-update = "nix flake update ~/.config/nix && home-manager switch --flake ~/.config/nix#melek";
@@ -12,11 +20,6 @@
       else
           PS1=''${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
       fi
-
-      # Navigation functions
-      .. () { cd ..; }
-      ... () { cd ../..; }
-      .... () { cd ../../..; }
     '';
   };
 }
