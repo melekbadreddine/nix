@@ -10,17 +10,14 @@
     lazygit    # Git TUI
     
     # Help & Cheats
-    tealdeer
     navi
 
     # Monitoring
     bottom    # btm
-    glances
 
     # Disk Management
     dua
     duf
-    erdtree
     
     # AI
     gemini-cli

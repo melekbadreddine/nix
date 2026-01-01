@@ -20,7 +20,7 @@
       myip = "curl -s ifconfig.me";
 
       # Cheat sheets
-      "?" = "curl -s cht.sh/";
+      "?" = "func() { curl -s \"cht.sh/$*\"; }; func"
     };
     bashrcExtra = ''
       if [ "$color_prompt" = yes ]; then
