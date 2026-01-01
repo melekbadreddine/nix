@@ -18,9 +18,6 @@
       # System info
       ports = "netstat -tulanp";
       myip = "curl -s ifconfig.me";
-
-      # Cheat sheets
-      "?" = "func() { curl -s \"cht.sh/$*\"; }; func"
     };
     bashrcExtra = ''
       if [ "$color_prompt" = yes ]; then
@@ -28,6 +25,11 @@
       else
           PS1=''${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
       fi
+
+      # Cheat sheet
+      ?() {
+        curl -s "cht.sh/$*"
+      }
     '';
   };
 }
