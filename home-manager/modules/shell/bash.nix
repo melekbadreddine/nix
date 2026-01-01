@@ -2,7 +2,14 @@
   programs.bash = {
     enable = true;
     shellAliases = {
+      # Quick navigation
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      
+      # Nix management
       nix-switch = "home-manager switch --flake ~/.config/nix#melek";
+      nix-update = "nix flake update ~/.config/nix && home-manager switch --flake ~/.config/nix#melek";
     };
     bashrcExtra = ''
       if [ "$color_prompt" = yes ]; then
