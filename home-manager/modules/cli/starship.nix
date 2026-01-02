@@ -1,79 +1,120 @@
-{ ... }: {
+{ lib, ... }: {
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
+    
     settings = {
-      palette = "catppuccin_mocha";
-
-      palettes.catppuccin_mocha = {
-        rosewater = "#f5e0dc";
-        flamingo = "#f2cdcd";
-        pink = "#f5c2e7";
-        mauve = "#cba6f7";
-        red = "#f38ba8";
-        maroon = "#eba0ac";
-        peach = "#fab387";
-        yellow = "#f9e2af";
-        green = "#a6e3a1";
-        teal = "#94e2d5";
-        sky = "#89dceb";
-        sapphire = "#74c7ec";
-        blue = "#89b4fa";
-        lavender = "#b4befe";
-        text = "#cdd6f4";
-        subtext1 = "#bac2de";
-        subtext0 = "#a6adc8";
-        overlay2 = "#9399b2";
-        overlay1 = "#7f849c";
-        overlay0 = "#6c7086";
-        surface2 = "#585b70";
-        surface1 = "#45475a";
-        surface0 = "#313244";
-        base = "#1e1e2e";
-        mantle = "#181825";
-        crust = "#11111b";
-      };
-
-      format = ''
-[](mauve)$directory[](fg:mauve bg:surface0)$git_branch$git_status[](fg:surface0 bg:surface1)$nix_shell[](fg:surface1 bg:surface2)$docker_context[](surface2)
-$character'';
+      format = lib.concatStrings [
+        "$username"
+        "$hostname"
+        "$directory"
+        "$git_branch"
+        "$git_status"
+        "$nix_shell"
+        "$nodejs"
+        "$bun"
+        "$rust"
+        "$golang"
+        "$cmd_duration"
+        "$time"
+        "$line_break"
+        "$character"
+      ];
 
       add_newline = true;
 
-      directory = {
-        style = "bg:mauve fg:base";
-        format = "[ $path ]($style)";
-        truncation_length = 3;
-        truncation_symbol = "…/";
+      # UI ELEMENTS
+      character = {
+        success_symbol = "[• ](bold green) ";
+        error_symbol = "[• 󰅙](bold red) ";
       };
 
+      # TIME
+      time = {
+        disabled = false;
+        time_format = "%T"; # HH:MM:SS
+        style = "bg:#1a1b26 fg:#7aa2f7 bold";
+        format = "at [](fg:#1a1b26)[🕙 $time]($style)[](fg:#1a1b26) ";
+      };
+
+      # USER & HOST
+      username = {
+        show_always = true;
+        style_user = "bg:#9ece6a fg:#15161e bold";
+        style_root = "bg:#f7768e fg:#15161e bold";
+        format = "[](fg:#9ece6a)[$user]($style)";
+      };
+
+      hostname = {
+        ssh_only = false;
+        style = "bg:#9ece6a fg:#15161e bold";
+        format = "[@$hostname]($style)[](fg:#9ece6a) ";
+      };
+
+      # DIRECTORY
+      directory = {
+        style = "bg:#7aa2f7 fg:#15161e bold";
+        format = "[](fg:#7aa2f7)[$path]($style)[](fg:#7aa2f7) ";
+        truncation_length = 3;
+        substitutions = {
+          "Documents" = "󰈙 ";
+          "Downloads" = "  ";
+          "Music" = "󰎈 ";
+          "Pictures" = "  ";
+          "Dev" = "󱔗 ";
+        };
+      };
+
+      # GIT
       git_branch = {
         symbol = " ";
-        style = "bg:surface0 fg:mauve";
-        format = "[[ $symbol $branch ]($style)]($style)";
+        style = "bg:#bb9af7 fg:#15161e bold";
+        format = "[](fg:#bb9af7)[$symbol $branch]($style)[](fg:#bb9af7) ";
       };
 
       git_status = {
-        style = "bg:surface0 fg:mauve";
-        format = "[[($all_status$ahead_behind )]($style)]($style)";
+        style = "bold fg:#bb9af7";
+        format = "([$all_status$ahead_behind]($style) )";
+        conflicted = "🏳 ";
+        ahead = "🏎💨 ";
+        behind = "😰 ";
+        diverged = "😵 ";
+        untracked = "🤷 ";
+        stashed = "󰏗 ";
+        modified = "📝 ";
+        staged = "[++\($count\)](green)";
+        deleted = "🗑 ";
+      };
+
+      # LANGUAGES & TOOLS
+      bun = {
+        symbol = "󰛦 ";
+        format = "via [$symbol($version)]($style) ";
+        style = "bold #fbf0f1"; # Bun's signature light-pink/white
+      };
+
+      nodejs = {
+        symbol = " ";
+        format = "via [$symbol($version)]($style) ";
+        style = "bold green";
       };
 
       nix_shell = {
         symbol = " ";
-        style = "bg:surface1 fg:blue";
-        format = "[[ $symbol $state ]($style)]($style)";
+        format = "via [$symbol $state]($style) ";
+        style = "bold blue";
       };
 
-      docker_context = {
-        symbol = " ";
-        style = "bg:surface2 fg:sky";
-        format = "[[ $symbol $context ]($style)]($style)";
+      package.symbol = "📦 ";
+
+      cmd_duration = {
+        min_time = 500;
+        format = "took [ $duration](bold yellow) ";
       };
 
-      character = {
-        success_symbol = "[󰄵 ](bold green)";
-        error_symbol = "[󰄵 ](bold red)";
-      };
+      rust.symbol = " ";
+      golang.symbol = "󰟓 ";
+      lua.symbol = " ";
     };
   };
 }
