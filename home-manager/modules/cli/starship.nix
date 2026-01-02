@@ -7,6 +7,7 @@ let
   mauve = "#cba6f7";
   base = "#1e1e2e";
   red = "#f38ba8";
+  mantle = "#181825";
 in {
   programs.starship = {
     enable = true;
@@ -19,28 +20,31 @@ in {
         "$directory"
         "$git_branch"
         "$git_status"
+        "$nix_shell"
+        "$nodejs"
+        "$bun"
+        "$cmd_duration"
+        "$line_break"
         "$character"
       ];
 
-      add_newline = false;
+      add_newline = true;
 
-      # OS ICON
+      # OS
       os = {
         disabled = false;
-        format = "[ $symbol ]($style)[](fg:${green} bg:${blue})";
+        format = "[ $symbol]($style)";
         style = "bg:${green} fg:${base}";
         symbols = {
-          Linux = ""; 
-          Ubuntu = "";
+          Linux = " "; 
+          Ubuntu = " ";
         };
       };
-
-      username.disabled = true;
 
       # TIME
       time = {
         disabled = false;
-        time_format = "%R"; 
+        time_format = "%R"; # 24h HH:MM
         style = "bg:${blue} fg:${base} bold";
         format = "[ 󱑎 $time ]($style)[](fg:${blue} bg:${lavender})";
       };
@@ -48,24 +52,20 @@ in {
       # DIRECTORY
       directory = {
         style = "bg:${lavender} fg:${base} bold";
-        # If git is NOT present, this segment needs to end the arrow
-        format = "[ 󰉋 $path ]($style)[](fg:${lavender} bg:${mauve})";
+        format = "[ 󰉋 $path ]($style)[](fg:${lavender})";
         truncation_length = 3;
         home_symbol = "~";
       };
 
-      # GIT BRANCH
+      # GIT
       git_branch = {
-        symbol = "";
+        symbol = " ";
         style = "bg:${mauve} fg:${base} bold";
-        # This segment opens the Mauve block
-        format = "[ $symbol $branch ]($style)";
+        format = "[](fg:${lavender} bg:${mauve})[ $symbol$branch ]($style)";
       };
 
-      # GIT STATUS
       git_status = {
         style = "bg:${mauve} fg:${base} bold";
-        # This finishes the Mauve block and creates the ARROW TIP at the end
         format = "([$all_status$ahead_behind]($style))[](fg:${mauve})";
         conflicted = "🏳 ";
         ahead = "🏎💨 ";
@@ -74,9 +74,13 @@ in {
         untracked = "🤷 ";
         stashed = "󰏗 ";
         modified = "📝 ";
-        staged = "[++\($count\)](fg:${base} bg:${mauve})";
+        staged = "[++\($count\)](fg:${green} bg:${mauve})";
         deleted = "🗑 ";
       };
+
+      nix_shell.disabled = true;
+      nodejs.disabled = true;
+      bun.disabled = true;
 
       # INPUT LINE
       character = {
@@ -84,9 +88,7 @@ in {
         error_symbol = "[ ](bold ${red})";
       };
 
-      nix_shell.disabled = true;
-      nodejs.disabled = true;
-      bun.disabled = true;
+      package.symbol = "📦 ";
     };
   };
 }
