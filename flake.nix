@@ -13,7 +13,7 @@
   outputs = { nixpkgs, home-manager, fresh, ... }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations."melek" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
