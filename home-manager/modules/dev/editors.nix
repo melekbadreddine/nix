@@ -1,5 +1,5 @@
 { pkgs, fresh, ... }: {
   home.packages = [
-    fresh.packages.${pkgs.system}.default
+    fresh.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
