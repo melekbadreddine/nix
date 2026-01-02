@@ -16,7 +16,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations."melek" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = pkgs;
         extraSpecialArgs = { inherit fresh; }; 
         modules = [ ./home-manager/home.nix ];
       };

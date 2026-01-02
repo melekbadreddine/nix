@@ -14,7 +14,7 @@
       nix-switch = "home-manager switch --flake $HOME/.config/nix#melek";
       nix-update = "nix flake update $HOME/.config/nix && home-manager switch --flake $HOME/.config/nix#melek";
       nix-edit = "fresh $HOME/.config/nix/";
-      nix-gc     = "nix-collect-garbage -d";
+      nix-gc = "nix-collect-garbage -d";
 
       # System info
       ports = "netstat -tulanp";
