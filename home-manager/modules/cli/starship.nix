@@ -48,8 +48,10 @@ in {
         disabled = false;
         format = "[ $symbol]($style)";
         style = "bg:${green} fg:${base}";
-        symbols.linux = " ";
-        symbols.ubuntu = " ";
+        symbols = {
+          Linux = " "; 
+          Ubuntu = " ";
+        };
       };
 
       username = {
@@ -123,8 +125,8 @@ in {
 
       # INPUT LINE
       character = {
-        success_symbol = "[• ](bold ${green}) ";
-        error_symbol = "[• 󰅙](bold ${red}) ";
+        success_symbol = "[ ](bold ${green})"; 
+        error_symbol = "[ ](bold ${red})";
       };
 
       package.symbol = "📦 ";
