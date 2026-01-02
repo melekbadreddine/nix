@@ -7,7 +7,6 @@ let
   mauve = "#cba6f7";
   base = "#1e1e2e";
   red = "#f38ba8";
-  mantle = "#181825";
 in {
   programs.starship = {
     enable = true;
@@ -20,36 +19,29 @@ in {
         "$directory"
         "$git_branch"
         "$git_status"
-        "$nix_shell"
-        "$nodejs"
-        "$bun"
-        "$cmd_duration"
         "$line_break"
         "$character"
       ];
 
       add_newline = true;
 
-      # OS
       os = {
         disabled = false;
-        format = "[ $symbol]($style)";
+        format = "[ $symbol ]($style)[](fg:${green} bg:${blue})";
         style = "bg:${green} fg:${base}";
         symbols = {
-          Linux = " "; 
-          Ubuntu = " ";
+          Linux = ""; 
+          Ubuntu = "";
         };
       };
 
-      # TIME
       time = {
         disabled = false;
-        time_format = "%R"; # 24h HH:MM
+        time_format = "%R"; 
         style = "bg:${blue} fg:${base} bold";
         format = "[ 󱑎 $time ]($style)[](fg:${blue} bg:${lavender})";
       };
 
-      # DIRECTORY
       directory = {
         style = "bg:${lavender} fg:${base} bold";
         format = "[ 󰉋 $path ]($style)[](fg:${lavender})";
@@ -57,38 +49,35 @@ in {
         home_symbol = "~";
       };
 
-      # GIT
       git_branch = {
-        symbol = " ";
+        symbol = "";
         style = "bg:${mauve} fg:${base} bold";
-        format = "[](fg:${lavender} bg:${mauve})[ $symbol$branch ]($style)";
+        format = "[](fg:${lavender} bg:${mauve})[ $symbol $branch]($style)";
       };
 
       git_status = {
         style = "bg:${mauve} fg:${base} bold";
-        format = "([$all_status$ahead_behind]($style))[](fg:${mauve})";
-        conflicted = "🏳 ";
-        ahead = "🏎💨 ";
-        behind = "😰 ";
-        diverged = "😵 ";
-        untracked = "🤷 ";
-        stashed = "󰏗 ";
-        modified = "📝 ";
-        staged = "[++\($count\)](fg:${green} bg:${mauve})";
-        deleted = "🗑 ";
+        # We put the symbols inside the brackets so they stay in the Mauve pill
+        format = "[[ $all_status$ahead_behind]($style)]($style)[](fg:${mauve})";
+        conflicted = "🏳";
+        ahead = "🏎💨";
+        behind = "😰";
+        diverged = "😵";
+        untracked = "🤷";
+        stashed = "󰏗";
+        modified = "📝";
+        staged = "++";
+        deleted = "🗑";
       };
 
-      nix_shell.disabled = true;
-      nodejs.disabled = true;
-      bun.disabled = true;
-
-      # INPUT LINE
       character = {
         success_symbol = "[ ](bold ${green})"; 
         error_symbol = "[ ](bold ${red})";
       };
 
-      package.symbol = "📦 ";
+      nix_shell.disabled = true;
+      nodejs.disabled = true;
+      bun.disabled = true;
     };
   };
 }
