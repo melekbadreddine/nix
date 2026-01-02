@@ -1,80 +1,90 @@
-{ lib, ... }: {
+{ lib, ... }: 
+let
+  # Catppuccin Mocha Colors
+  rosewater = "#f5e0dc";
+  flamingo = "#f2cdcd";
+  pink = "#f5c2e7";
+  mauve = "#cba6f7";
+  red = "#f38ba8";
+  maroon = "#eba0ac";
+  peach = "#fab387";
+  yellow = "#f9e2af";
+  green = "#a6e3a1";
+  teal = "#94e2d5";
+  sky = "#89dceb";
+  sapphire = "#74c7ec";
+  blue = "#89b4fa";
+  lavender = "#b4befe";
+  text = "#cdd6f4";
+  base = "#1e1e2e";
+  mantle = "#181825";
+  crust = "#11111b";
+in {
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
     
     settings = {
+      # Custom format using OS icon and Powerline arrows
       format = lib.concatStrings [
+        "$os"
         "$username"
-        "$hostname"
+        "$time"
         "$directory"
         "$git_branch"
         "$git_status"
         "$nix_shell"
         "$nodejs"
         "$bun"
-        "$rust"
-        "$golang"
         "$cmd_duration"
-        "$time"
         "$line_break"
         "$character"
       ];
 
       add_newline = true;
 
-      # UI ELEMENTS
-      character = {
-        success_symbol = "[• ](bold green) ";
-        error_symbol = "[• 󰅙](bold red) ";
+      # OS & USER
+      os = {
+        disabled = false;
+        format = "[ $symbol]($style)";
+        style = "bg:${green} fg:${base}";
+        symbols.linux = " ";
+        symbols.ubuntu = " ";
+      };
+
+      username = {
+        show_always = true;
+        style_user = "bg:${green} fg:${base} bold";
+        style_root = "bg:${red} fg:${base} bold";
+        format = "[$user]($style)[](fg:${green} bg:${blue})";
       };
 
       # TIME
       time = {
         disabled = false;
-        time_format = "%T"; # HH:MM:SS
-        style = "bg:#1a1b26 fg:#7aa2f7 bold";
-        format = "at [](fg:#1a1b26)[🕙 $time]($style)[](fg:#1a1b26) ";
-      };
-
-      # USER & HOST
-      username = {
-        show_always = true;
-        style_user = "bg:#9ece6a fg:#15161e bold";
-        style_root = "bg:#f7768e fg:#15161e bold";
-        format = "[](fg:#9ece6a)[$user]($style)";
-      };
-
-      hostname = {
-        ssh_only = false;
-        style = "bg:#9ece6a fg:#15161e bold";
-        format = "[@$hostname]($style)[](fg:#9ece6a) ";
+        time_format = "%R"; # 24h HH:MM
+        style = "bg:${blue} fg:${base} bold";
+        format = "[ 󱑎 $time ]($style)[](fg:${blue} bg:${lavender})";
       };
 
       # DIRECTORY
       directory = {
-        style = "bg:#7aa2f7 fg:#15161e bold";
-        format = "[](fg:#7aa2f7)[$path]($style)[](fg:#7aa2f7) ";
+        style = "bg:${lavender} fg:${base} bold";
+        format = "[ 󰉋 $path ]($style)[](fg:${lavender} bg:${mauve})";
         truncation_length = 3;
-        substitutions = {
-          "Documents" = "󰈙 ";
-          "Downloads" = "  ";
-          "Music" = "󰎈 ";
-          "Pictures" = "  ";
-          "Dev" = "󱔗 ";
-        };
+        home_symbol = "~";
       };
 
       # GIT
       git_branch = {
         symbol = " ";
-        style = "bg:#bb9af7 fg:#15161e bold";
-        format = "[](fg:#bb9af7)[$symbol $branch]($style)[](fg:#bb9af7) ";
+        style = "bg:${mauve} fg:${base} bold";
+        format = "[ $symbol$branch ]($style)";
       };
 
       git_status = {
-        style = "bold fg:#bb9af7";
-        format = "([$all_status$ahead_behind]($style) )";
+        style = "bg:${mauve} fg:${base} bold";
+        format = "([$all_status$ahead_behind]($style))[](fg:${mauve} bg:${mantle})";
         conflicted = "🏳 ";
         ahead = "🏎💨 ";
         behind = "😰 ";
@@ -82,39 +92,42 @@
         untracked = "🤷 ";
         stashed = "󰏗 ";
         modified = "📝 ";
-        staged = "[++\($count\)](green)";
+        staged = "[++\($count\)](fg:${green} bg:${mauve})";
         deleted = "🗑 ";
       };
 
-      # LANGUAGES & TOOLS
-      bun = {
-        symbol = "󰛦 ";
-        format = "via [$symbol($version)]($style) ";
-        style = "bold #fbf0f1"; # Bun's signature light-pink/white
+      # NIX & TOOLS
+      nix_shell = {
+        symbol = " ";
+        format = "[ via $symbol$state]($style)";
+        style = "bg:${mantle} fg:${blue} bold";
       };
 
       nodejs = {
         symbol = " ";
-        format = "via [$symbol($version)]($style) ";
-        style = "bold green";
+        format = "[ $symbol($version)]($style)";
+        style = "bg:${mantle} fg:${green} bold";
       };
 
-      nix_shell = {
-        symbol = " ";
-        format = "via [$symbol $state]($style) ";
-        style = "bold blue";
+      bun = {
+        symbol = "󰛦 ";
+        format = "[ $symbol($version)]($style)";
+        style = "bg:${mantle} fg:${rosewater} bold";
       };
-
-      package.symbol = "📦 ";
 
       cmd_duration = {
         min_time = 500;
-        format = "took [ $duration](bold yellow) ";
+        format = "[ took  $duration]($style)";
+        style = "bg:${mantle} fg:${yellow} bold";
       };
 
-      rust.symbol = " ";
-      golang.symbol = "󰟓 ";
-      lua.symbol = " ";
+      # INPUT LINE
+      character = {
+        success_symbol = "[• ](bold ${green}) ";
+        error_symbol = "[• 󰅙](bold ${red}) ";
+      };
+
+      package.symbol = "📦 ";
     };
   };
 }
