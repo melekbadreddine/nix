@@ -21,7 +21,6 @@
         "$golang"
         "$nodejs"
         "$bun"
-        "$typescript"
         "$php"
         "$java"
         "$kotlin"
@@ -147,12 +146,6 @@
 
       bun = {
         symbol = "󰛦 ";
-        style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
-      };
-
-      typescript = {
-        symbol = " ";
         style = "bg:teal";
         format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
