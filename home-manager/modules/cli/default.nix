@@ -5,6 +5,7 @@
     ./fzf.nix
     ./starship.nix
     ./utils.nix
+    ./zellij.nix
     ./zoxide.nix
   ];
 }

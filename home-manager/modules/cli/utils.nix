@@ -1,20 +1,20 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     # Search & Filter
-    ripgrep  # rg
-    fd       # Better find
-    jq       # JSON processor
+    ripgrep
+    fd
+    jq
 
     # DevOps & Git
-    gh         # GitHub CLI
-    lazygit    # Git TUI
+    gh
+    lazygit
     
     # Help & Cheats
     navi
     cht-sh
 
     # Monitoring
-    bottom    # btm
+    btop
 
     # Disk Management
     dua

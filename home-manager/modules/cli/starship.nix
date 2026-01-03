@@ -15,7 +15,7 @@
         "[](fg:peach bg:green)"
         "$git_branch"
         "$git_status"
-        "[](fg:green bg:teal)"
+        "[](fg:green bg:yellow)"
         "$c"
         "$rust"
         "$golang"
@@ -27,7 +27,7 @@
         "$kotlin"
         "$haskell"
         "$python"
-        "[](fg:teal bg:blue)"
+        "[](fg:yellow bg:blue)"
         "$docker_context"
         "[](fg:blue bg:purple)"
         "$time"
@@ -46,12 +46,12 @@
         red = "#f38ba8";
         maroon = "#eba0ac";
         peach = "#fab387";
-        yellow = "#f9e2af";
-        green = "#a6e3a1";
+        yellow = "#fcf393";
+        green = "#7df9aa";
         teal = "#94e2d5";
         sky = "#89dceb";
         sapphire = "#74c7ec";
-        blue = "#89b4fa";
+        blue = "#1c3a5e";
         lavender = "#b4befe";
         text = "#cdd6f4";
         subtext1 = "#bac2de";
@@ -104,8 +104,10 @@
       directory = {
         style = "fg:mantle bg:peach";
         format = "[ $path ]($style)";
+        home_symbol = " ~";
+        
         truncation_length = 3;
-        truncation_symbol = "…/";
+        truncation_symbol = " …/";
         substitutions = {
           "Documents" = "󰈙 ";
           "Downloads" = " ";
@@ -140,67 +142,67 @@
       nodejs = {
         symbol = "";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       bun = {
         symbol = "󰛦 ";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       typescript = {
         symbol = " ";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       c = {
         symbol = " ";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       rust = {
         symbol = "";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       golang = {
         symbol = "";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       php = {
         symbol = "";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       java = {
         symbol = " ";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       kotlin = {
         symbol = "";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       haskell = {
         symbol = "";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       python = {
         symbol = "";
         style = "bg:teal";
-        format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)";
+        format = "[[ $symbol( $version) ](fg:base bg:yellow)]($style)";
       };
 
       docker_context = {
