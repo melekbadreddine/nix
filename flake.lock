@@ -67,11 +67,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1767088444,
-        "narHash": "sha256-Mcyb1tNxKggTneP4Ia6eutUaBgXCC2mgWnd7rUlUM9w=",
+        "lastModified": 1767608948,
+        "narHash": "sha256-ag1ofXlVyxBWHNNmEHU2Plt+F0AP0Utlvcv7ZVQGobA=",
         "owner": "sinelaw",
         "repo": "fresh",
-        "rev": "d85bcb4b1a68ca77fd8768ce11c229b658019aa7",
+        "rev": "eb384644573a6586d6265cf75d54b681acd58469",
         "type": "github"
       },
       "original": {
