@@ -4,7 +4,8 @@
     cargo
     bun
   ];
-  home.sessionVariables = {
-    PATH = "$HOME/.cargo/bin:$HOME/.bun/bin:$PATH";
-  };
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+    "$HOME/.bun/bin"
+  ];
 }

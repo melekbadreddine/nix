@@ -17,7 +17,7 @@
       nix-gc = "nix-collect-garbage -d";
 
       # System info
-      ports = "netstat -tulanp";
+      ports = "ss -tulanp";
       myip = "curl -s ifconfig.me";
     };
   };

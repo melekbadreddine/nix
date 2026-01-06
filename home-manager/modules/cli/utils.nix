@@ -4,10 +4,6 @@
     ripgrep
     fd
     jq
-
-    # DevOps & Git
-    gh
-    lazygit
     
     # Help & Cheats
     navi
