@@ -67,11 +67,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1767715042,
-        "narHash": "sha256-0uL+2gjNxwcllVs14cKhaRBsabzOYvQ5H8dO6YcKY4M=",
+        "lastModified": 1767608948,
+        "narHash": "sha256-ag1ofXlVyxBWHNNmEHU2Plt+F0AP0Utlvcv7ZVQGobA=",
         "owner": "sinelaw",
         "repo": "fresh",
-        "rev": "acd21260eaf62922d065efc869fa7aa75df97785",
+        "rev": "eb384644573a6586d6265cf75d54b681acd58469",
         "type": "github"
       },
       "original": {
@@ -118,11 +118,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1767640445,
-        "narHash": "sha256-UWYqmD7JFBEDBHWYcqE6s6c77pWdcU/i+bwD6XxMb8A=",
+        "lastModified": 1766902085,
+        "narHash": "sha256-coBu0ONtFzlwwVBzmjacUQwj3G+lybcZ1oeNSQkgC0M=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9f0c42f8bc7151b8e7e5840fb3bd454ad850d8c5",
+        "rev": "c0b0e0fddf73fd517c3471e546c0df87a42d53f4",
         "type": "github"
       },
       "original": {
