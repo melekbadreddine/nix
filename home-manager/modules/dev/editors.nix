@@ -1,5 +1,5 @@
-{ pkgs, fresh, ... }: {
+{ pkgs, ... }: {
   home.packages = [
-    fresh.packages.${pkgs.stdenv.hostPlatform.system}.default
+    pkgs.fresh-editor 
   ];
 }
