@@ -1,7 +1,7 @@
 { ... }: {
   imports = [
     ./cloud.nix
+    ./fresh.nix
     ./languages.nix
-    ./editors.nix
   ];
 }

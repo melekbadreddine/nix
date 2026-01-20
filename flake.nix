@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fresh.url = "github:sinelaw/fresh";
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, fresh, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -20,7 +21,8 @@
       };
     in {
       homeConfigurations."melek" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs; 
+        inherit pkgs;
+        extraSpecialArgs = { inherit fresh; }; 
         modules = [ ./home-manager/home.nix ];
       };
     };
