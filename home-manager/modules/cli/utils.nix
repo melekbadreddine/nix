@@ -18,6 +18,7 @@
     
     # AI
     gemini-cli
+    claude-code
   ];
 
   programs.bash.shellAliases = {
