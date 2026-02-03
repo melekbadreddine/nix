@@ -22,7 +22,9 @@
     in {
       homeConfigurations."melek" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit fresh; }; 
+        extraSpecialArgs = { 
+          inherit fresh;
+        };  
         modules = [ ./home-manager/home.nix ];
       };
     };

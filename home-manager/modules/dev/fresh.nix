@@ -2,10 +2,10 @@
   home.packages = [
     (pkgs.rustPlatform.buildRustPackage {
       pname = "fresh";
-      version = "0.1.90";
+      version = "0.1.98";
       src = fresh;
 
-      cargoHash = "sha256-tHuesoVUZ5OC9R662T4q0W8deXM/Gzvl0WEpHIltBOM=";
+      cargoHash = "sha256-QpRS1192xv+dizrlg/LTeiuLtilQev5LbkgsHNel9uc=";
 
       nativeBuildInputs = [ 
         pkgs.pkg-config 

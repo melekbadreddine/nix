@@ -19,6 +19,7 @@
     # AI
     gemini-cli
     claude-code
+    github-copilot-cli
   ];
 
   programs.bash.shellAliases = {
