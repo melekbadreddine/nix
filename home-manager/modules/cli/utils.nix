@@ -18,7 +18,6 @@
     
     # AI
     gemini-cli
-    claude-code
     github-copilot-cli
   ];
 

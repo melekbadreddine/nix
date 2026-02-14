@@ -2,20 +2,20 @@
   home.packages = [
     (pkgs.rustPlatform.buildRustPackage {
       pname = "fresh";
-      version = "0.1.98";
+      version = "git";
       src = fresh;
-
-      cargoHash = "sha256-QpRS1192xv+dizrlg/LTeiuLtilQev5LbkgsHNel9uc=";
-
+      
+      cargoLock = {
+        lockFile = "${fresh}/Cargo.lock";
+      };
+      
       nativeBuildInputs = [ 
         pkgs.pkg-config 
         pkgs.rustPlatform.bindgenHook
       ];
-
       buildInputs = [ 
         pkgs.llvmPackages.libclang 
       ];
-
       LIBCLANG_PATH = "${pkgs.llvmPackages.libclang.lib}/lib";
       
       doCheck = false;
